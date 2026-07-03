@@ -1,0 +1,89 @@
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* pushes background behind everything else */
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #222;
+  padding: 40px;
+  font-family: system-ui, sans-serif;
+}
+
+.profile {
+  background-color: #e1e6ed;
+  border-radius: 12px; /* to round the corners of the box */
+  padding: 45px; /* 45 pixels on the top, right, bottom, left */
+  display: flex; /* allows the child elements to be flexible in stacking */
+  align-items: center; /* vertically align all the child elements in the center */
+  gap: 30px; /* space between items inside the flexbox */
+  max-width: 800px; /* max width of flexbox */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* subtle shadow behind the box */
+  margin: 0 auto;
+}
+
+.text {
+  flex: 1;
+}
+
+.text h1 {
+  font-size: 30px;
+  /*margin-bottom: 0.px;*/
+  color: #bd4e20;
+  margin-bottom: 10px;
+}
+
+/* Image */
+.pic img {
+  width: 250px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.linkedin-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  border-radius: 999px;
+
+  background: white;
+
+  color: #0a66c2;
+
+  font-weight: bold;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.linkedin-button:hover {
+  transform: scale(5);
+
+  background-color: #0a66c2;
+
+  color: #0a66c2;
+}
+
+#title {
+  font-size: 3rem;
+  color: white;
+}
+
+#title::after {
+  content: "|";
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

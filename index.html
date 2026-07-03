@@ -1,39 +1,88 @@
 <!doctype html>
 <html>
   <head>
-    <title>My First Web Page</title>
-
-    <style>
-      body {
-        background-color: lightblue;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin: 0;
-        padding-top: 100px;
-      }
-
-      h1 {
-        color: darkblue;
-        font-size: 48px;
-      }
-
-      button {
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.birds.min.js"></script>
+    <title>Nien Xiang Tou</title>
   </head>
-
   <body>
-    <h1>Welcome to My First Web Page</h1>
+    <div id="background"></div>
 
-    <button onclick="changeTitle()">Click me</button>
+    <header>
+      <p>Nien Xiang Tou</p>
+    </header>
+    <main>
+      <div class="profile">
+        <div class="pic">
+          <img src="images/profile.jpg" alt="Nien Xiang Tou" />
+        </div>
+        <div class="text">
+          <h1 id="title-header"></h1>
+          <p>
+            I am a public health researcher interested in advancing the
+            equitable implementation of evidence-based exericse interventions to
+            improve population health.
+          </p>
+          <p>
+            My work draws on behavioural and implementation science to bridge
+            the gap between research evidence and real-world practice.
+          </p>
+          <p>I am also a data visualisation and #RStats enthusiast.</p>
 
+          <a
+            href="https://www.linkedin.com/in/nien-xiang-tou-phd-a15594184/"
+            target="_blank"
+            class=""
+            linkedin-button
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </main>
     <script>
-      function changeTitle() {
-        document.querySelector("h1").textContent = "You clicked the button!";
+      VANTA.BIRDS({
+        el: "#background",
+
+        mouseControls: true,
+        touchControls: true,
+
+        color1: 0xfbbf24,
+        wingspan: 30,
+        cohesion: 20,
+      });
+    </script>
+    <script>
+      const text = "Howdy! 🖖 I'm Nien Xiang.";
+
+      const title = document.getElementById("title-header");
+
+      let index = 0;
+
+      function typeWriter() {
+        title.textContent = text.slice(0, index);
+
+        index++;
+
+        if (index <= text.length) {
+          setTimeout(typeWriter, 120);
+        } else {
+          setTimeout(() => {
+            index = 0;
+            title.textContent = "";
+
+            typeWriter();
+          }, 2000);
+        }
       }
+
+      typeWriter();
     </script>
   </body>
 </html>
